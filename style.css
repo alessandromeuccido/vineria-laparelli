@@ -111,7 +111,7 @@ h2 {
     overflow: hidden;
     position: relative;
     height: 0;
-    padding-bottom: 56.25%; /* Rapporto 16:9 per la mappa */
+    padding-bottom: 30.25%; /* Rapporto 16:9 per la mappa */
     max-width: 1000px;
     margin: 40px auto;
     border: 1px solid rgba(255, 255, 255, 0.1);
