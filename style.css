@@ -37,7 +37,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Scurisce la foto al 60% */
+    background: rgba(0, 0, 0, 0.8); /* Scurisce la foto al 60% */
     z-index: 1;
 }
 
@@ -51,14 +51,14 @@ body {
 
 /* LOGO */
 .logo img {
-    width: 80px; /* Regola la grandezza del logo */
+    width: 150px; /* Regola la grandezza del logo */
     margin-bottom: 20px;
 }
 
 /* TITOLI */
 h1 {
-    font-size: 2.5rem;
-    font-weight: 900;
+    font-size: 2rem;
+    font-weight: 700;
     letter-spacing: 4px;
     margin-bottom: 10px;
 }
