@@ -102,6 +102,44 @@ h2 {
     background: rgba(255, 255, 255, 0.1);
     color: var(--accent-color);
 }
+/* SECTION LA NOSTRA STORIA */
+.parallax-section {
+    position: relative;
+    min-height: 100vh; /* Almeno l'altezza dello schermo */
+    width: 100%;
+    
+    /* SFONDO FISSO */
+    background-image: url('img/team-vineria.png'); /* L'immagine "dietro" */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* <--- IL SEGRETO È QUI */
+    
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.story-container {
+    display: flex; /* Mette le colonne una accanto all'altra */
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* Sfondo semi-trasparente per leggere bene */
+    color: #000000;
+    min-height: 60vh;
+}
+
+.story-text, .story-image {
+    flex: 1; /* Entrambe le colonne occupano lo stesso spazio (50%) */
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ritaglia l'immagine senza schiacciarla */
+}
 
 /* GOOGLE MAPS FRAME */
 #location {
