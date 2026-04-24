@@ -1,7 +1,7 @@
 /* RESET E VARIABILI */
 :root {
     --main-color: #ffffff;
-    --accent-color: #7B1545; /* Il viola acceso della vineria */
+    --accent-color: #7B1545; /* Il viola della vineria */
     --bg-dark: #000000;
 }
 
@@ -15,17 +15,15 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--bg-dark);
     color: var(--main-color);
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Evita lo scroll orizzontale fastidioso */
+    overflow-x: hidden; 
 }
 
-/* HERO SECTION */
+/* --- HERO SECTION --- */
 .hero {
     position: relative;
-    height: 100vh; /* Altezza totale dello schermo */
+    height: 100vh; 
     width: 100%;
-    background-image: url("img/team-vineria.png"); /* La foto team di sfondo */
+    background-image: url("img/team-vineria.png"); 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -33,36 +31,32 @@ body {
     align-items: center;
 }
 
-/* Overlay per scurire la foto (come il filtro rosso/nero dello screenshot) */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Scurisce la foto al 60% */
+    background: rgba(0, 0, 0, 0.8); 
     z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    z-index: 2; /* Mette il testo sopra l'overlay */
+    z-index: 2; 
     text-align: center;
     width: 90%;
     max-width: 500px;
 }
 
-/* LOGO */
 .logo img {
-    width: 150px; /* Regola la grandezza del logo */
+    width: 150px; 
     margin-bottom: 20px;
-    display: block;    /* Necessario per centrare con margin auto */
+    display: block;    
     margin-left: auto;
     margin-right: auto;
-    z-index: 3;
 }
 
-/* TITOLI */
 h1 {
     font-size: 2rem;
     font-weight: 700;
@@ -78,154 +72,141 @@ h2 {
     margin-bottom: 40px;
 }
 
-/* NAVIGAZIONE A BOTTONI (Stile Retrobottega) */
+/* --- NAVIGAZIONE --- */
 .main-nav {
     display: flex;
-    flex-direction: column; /* Mette i link uno sotto l'altro */
+    flex-direction: column; 
 }
 
 .nav-link {
     text-decoration: none;
     color: var(--main-color);
     padding: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Linea sottile sopra ogni link */
+    border-top: 1px solid rgba(255, 255, 255, 0.3); 
     font-size: 0.9rem;
     letter-spacing: 2px;
     transition: 0.3s;
 }
 
 .nav-link:last-child {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Chiude l'ultima riga */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); 
 }
 
 .nav-link:hover {
     background: rgba(255, 255, 255, 0.1);
     color: var(--accent-color);
 }
-/* SECTION LA NOSTRA STORIA */
-.parallax-story {
+
+/* --- SECTION PARALLAX (STORIA, NEGOZIO, TESSERA) --- */
+.parallax-story, .parallax-shop, .parallax-tessera {
     position: relative;
-    min-height: 100vh; /* Almeno l'altezza dello schermo */
+    min-height: 100vh; /* Corretto da min-width */
     width: 100%;
-    /* SFONDO FISSO */
-    background-image: url("img/wine-cork-vineria.jpg"); /* L'immagine "dietro" */
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* <--- IL SEGRETO È QUI */
+    background-attachment: fixed; /* Il segreto del parallax */
     display: flex;
     align-items: center;
-    padding: 80px 0;
+    justify-content: center;
 }
 
-.story-container {
-    display: flex; /* Mette le colonne una accanto all'altra */
+.parallax-story { background-image: url("img/wine-cork-vineria.jpg"); }
+.parallax-shop { background-image: url('img/botiglie-sezioneNegozio-vineria.jpg'); }
+.parallax-tessera { background-image: url("img/cantina-vineria.jpg"); }
+
+.story-container, .tessera-container {
+    display: flex; 
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.9); /* Sfondo semi-trasparente per leggere bene */
+    background-color: rgba(255, 255, 255, 0.9); 
     color: #000000;
     min-height: 60vh;
 }
 
-.story-text, .story-image {
-    flex: 1; /* Entrambe le colonne occupano lo stesso spazio (50%) */
+/* Modificato per la tessera fedeltà: più trasparenza come avevamo detto */
+.tessera-container {
+    background-color: rgba(255, 255, 255, 0.7); 
+}
+
+.story-text, .story-image, .tessera-text, .tessera-image {
+    flex: 1; 
     padding: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.story-image img {
+.story-image img, .tessera-image img {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Ritaglia l'immagine senza schiacciarla */
+    object-fit: cover;
 }
 
-/* NEGOZIO */
-.parallax-shop {
+/* --- LOGICA FLIP CARD (Aggiunta per la tessera) --- */
+.flip-card {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.flip-card-inner {
     position: relative;
-    /* Occupa tutto lo schermo */
-    height: 100vh; 
-    background-image: url('img/botiglie-sezioneNegozio-vineria.jpg'); 
-    background-attachment: fixed; /* <--- Questo crea l'effetto Parallax */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
-.parallax-shop .overlay {
-    background: rgba(0, 0, 0, 0.2); /* Meno nero, più trasparenza */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
 }
 
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+/* --- NEGOZIO GRID --- */
 .shop-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Crea due colonne uguali */
-    gap: 40px; /* Spazio tra le due colonne */
-    margin-top: 30px;
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+    z-index: 2;
 }
 
-/* Stile delle "Card" (Vini e Prodotti) */
 .category-card {
-    background: rgb(255, 255, 255); /* Sfondo scuro semi-trasparente */
+    background: rgb(255, 255, 255); 
     color: #000000;
     padding: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Bordo sottile elegante */
     transition: transform 0.3s ease;
+    text-align: center;
 }
 
 .category-card:hover {
-    transform: scale(1.05); /* La card si ingrandisce leggermente quando ci passi sopra */
-    border-color: #e91e63; /* Il colore di accento (es. il rosa del logo) */
+    transform: scale(1.05); 
+    border: 1px solid var(--accent-color);
 }
 
-/* TESSERA FEDELTA */
-.parallax-tessera {
-    position: relative;
-    min-width: 100vh;
-    width: 100%;
-    /* SFONDO FISSO */
-    background-image: url("img/cantina-vineria.jpg");
-    background-size: cover;
-    background-position: fixed;
-    display: flex;
-    align-items: center;
-    padding: 80px 0;
-}
-
-.tessera-container {
-    display: flex; 
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.5); /* Sfondo semi-trasparente per leggere bene */;
-    color: #000000;
-    min-width: 60vh;
-}
-
-.tessera-text, .story-image {
-    flex: 1; /* Entrambe le colonne occupano lo stesso spazio (50%) */
-    padding: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.tessera-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Ritaglia l'immagine senza schiacciarla */
-}
-
-/* GOOGLE MAPS FRAME */
+/* --- MAPS & FOOTER --- */
 #location {
     padding: 80px 20px;
     text-align: center;
-    background-color: var(--bg-dark); /* Per mantenere lo stile Retrobottega */
+    background-color: var(--bg-dark);
 }
 
 .map-container {
     overflow: hidden;
     position: relative;
     height: 0;
-    padding-bottom: 56.25%; /* Rapporto 16:9 per la mappa */
+    padding-bottom: 56.25%; 
     max-width: 1000px;
     margin: 40px auto;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -233,102 +214,55 @@ h2 {
 
 .map-container iframe {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
 }
 
-/* FOOTER */
-  footer {
+footer {
     width: 100%;
-    background-color: var(--bg-dark); /* Il nero del tuo sito */
+    background-color: var(--bg-dark);
     padding: 60px 20px;
     display: flex;
-    flex-direction: column; /* Mette i blocchi uno sotto l'altro */
+    flex-direction: column; 
     align-items: center;
-    justify-content: center;
-    gap: 40px; /* Crea uno spazio uguale tra logo, icone e testo */
+    gap: 40px; 
     text-align: center;
-    margin: 0;
-    /* border: 2px solid red;   */
 }
 
-/* Stile Logo Footer */
-.footer-logo img {
-    width: 90px; /* Più discreto rispetto alla Hero */
-    height: auto;
-    /* opacity: 0.9; */
-}
+.footer-logo img { width: 90px; height: auto; }
 
-/* Stile Icone */
-.footer-icons {
-    display: flex;
-    gap: 30px; /* Spazio tra un'icona e l'altra */
-}
+.footer-icons { display: flex; gap: 30px; }
 
 .footer-icons a {
-    color: var(--main-color); /* Bianco o grigio chiaro */
-    font-size: 1.8rem; /* Dimensione delle icone */
-    transition: transform 0.3s ease, color 0.3s ease;
+    color: var(--main-color); 
+    font-size: 1.8rem; 
+    transition: 0.3s ease;
 }
 
-/* 1. Effetto al passaggio del mouse: l'icona si colora e si alza leggermente */
-.footer-icons a:hover {
-    transform: translateY(-5px);
-}
+.footer-icons a:hover { transform: translateY(-5px); }
+.footer-icons a:hover .fa-whatsapp { color: #25D366; }
+.footer-icons a:hover .fa-envelope { color: #0078D4; }
+.footer-icons a:hover .fa-instagram { color: var(--accent-color); }
 
-/* 2. Colore WhatsApp (Verde) */
-.footer-icons a:hover .fa-whatsapp {
-    color: #25D366;
-}
-
-/* 3. Colore Email (Blu) */
-/* Usiamo .fa-envelope perché è la classe della tua busta da lettera */
-.footer-icons a:hover .fa-envelope {
-    color: #0078D4; 
-}
-
-/* 4. Colore Instagram (Viola/Rosa) */
-.footer-icons a:hover .fa-instagram {
-    color: #7B1545;
-}
-
-.footer-icons i {
-    transition: color 0.3s ease; /* Il colore sfuma in 0.3 secondi */
-}
-
-/* Stile Testi Footer */
-.footer-info p {
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    color: rgba(255, 255, 255, 0.7); /* Testo un po' più spento per non distrarre */
-}
-
+/* --- RESPONSIVE (Media Queries raggruppate) --- */
 @media (max-width: 768px) {
-    .story-container {
-        flex-direction: column; /* Da riga a colonna sul telefono */
-    }
-    
-    .parallax-section {
-        background-attachment: scroll; /* Sui telefoni vecchi il fixed a volte dà problemi, meglio scroll */
+    .story-container, .tessera-container {
+        flex-direction: column; 
     }
 
-    .story-text, .story-image {
-        padding: 40px 20px;
+    .parallax-story, .parallax-shop, .parallax-tessera {
+        background-attachment: scroll; 
+        height: auto;
+        min-height: auto;
+        padding: 60px 0;
     }
-}
 
-
-@media (max-width: 768px) {
     .shop-grid {
-        grid-template-columns: 1fr; /* Una sola colonna sotto i 768px */
+        grid-template-columns: 1fr;
     }
-    
-    .parallax-shop {
-        background-attachment: scroll; /* Disattiviamo il fixed su mobile per performance */
-        height: auto; /* Altezza adattabile al contenuto */
-        padding: 80px 0;
+
+    .story-text, .story-image, .tessera-text, .tessera-image {
+        padding: 30px 20px;
     }
+
+    h1 { font-size: 1.5rem; }
 }
