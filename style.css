@@ -141,6 +141,39 @@ h2 {
     object-fit: cover; /* Ritaglia l'immagine senza schiacciarla */
 }
 
+/* NEGOZIO */
+.parallax-shop {
+    position: relative;
+    height: 100vh; /* Occupa tutto lo schermo */
+    background-image: url('img/botiglie-sezioneNegozio-vineria.jpg'); 
+    background-attachment: fixed; /* <--- Questo crea l'effetto Parallax */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Crea due colonne uguali */
+    gap: 40px; /* Spazio tra le due colonne */
+    margin-top: 30px;
+}
+
+/* Stile delle "Card" (Vini e Prodotti) */
+.category-card {
+    background: rgba(0, 0, 0, 0.5); /* Sfondo scuro semi-trasparente */
+    padding: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Bordo sottile elegante */
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: scale(1.05); /* La card si ingrandisce leggermente quando ci passi sopra */
+    border-color: #e91e63; /* Il colore di accento (es. il rosa del logo) */
+}
+
 /* GOOGLE MAPS FRAME */
 #location {
     padding: 80px 20px;
@@ -244,5 +277,18 @@ h2 {
 
     .story-text, .story-image {
         padding: 40px 20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .shop-grid {
+        grid-template-columns: 1fr; /* Una sola colonna sotto i 768px */
+    }
+    
+    .parallax-shop {
+        background-attachment: scroll; /* Disattiviamo il fixed su mobile per performance */
+        height: auto; /* Altezza adattabile al contenuto */
+        padding: 80px 0;
     }
 }
