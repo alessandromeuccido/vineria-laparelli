@@ -103,17 +103,15 @@ h2 {
     color: var(--accent-color);
 }
 /* SECTION LA NOSTRA STORIA */
-.parallax-section {
+.parallax-story {
     position: relative;
     min-height: 100vh; /* Almeno l'altezza dello schermo */
     width: 100%;
-    
     /* SFONDO FISSO */
     background-image: url("img/wine-cork-vineria.jpg"); /* L'immagine "dietro" */
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* <--- IL SEGRETO È QUI */
-    
     display: flex;
     align-items: center;
     padding: 80px 0;
@@ -144,7 +142,8 @@ h2 {
 /* NEGOZIO */
 .parallax-shop {
     position: relative;
-    height: 100vh; /* Occupa tutto lo schermo */
+    /* Occupa tutto lo schermo */
+    height: 100vh; 
     background-image: url('img/botiglie-sezioneNegozio-vineria.jpg'); 
     background-attachment: fixed; /* <--- Questo crea l'effetto Parallax */
     background-size: cover;
@@ -155,7 +154,7 @@ h2 {
 }
 
 .parallax-shop .overlay {
-    background: rgba(0, 0, 0, 0.3); /* Meno nero, più trasparenza */
+    background: rgba(0, 0, 0, 0.2); /* Meno nero, più trasparenza */
 }
 
 .shop-grid {
@@ -167,7 +166,7 @@ h2 {
 
 /* Stile delle "Card" (Vini e Prodotti) */
 .category-card {
-    background: rgba(255, 255, 255, 0.886); /* Sfondo scuro semi-trasparente */
+    background: rgb(255, 255, 255); /* Sfondo scuro semi-trasparente */
     color: #000000;
     padding: 50px;
     border: 1px solid rgba(255, 255, 255, 0.2); /* Bordo sottile elegante */
@@ -177,6 +176,42 @@ h2 {
 .category-card:hover {
     transform: scale(1.05); /* La card si ingrandisce leggermente quando ci passi sopra */
     border-color: #e91e63; /* Il colore di accento (es. il rosa del logo) */
+}
+
+/* TESSERA FEDELTA */
+.parallax-tessera {
+    position: relative;
+    min-width: 100vh;
+    width: 100%;
+    /* SFONDO FISSO */
+    background-image: url("img/cantina-vineria.jpg");
+    background-size: cover;
+    background-position: fixed;
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.tessera-container {
+    display: flex; 
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Sfondo semi-trasparente per leggere bene */;
+    color: #000000;
+    min-width: 60vh;
+}
+
+.tessera-text, .story-image {
+    flex: 1; /* Entrambe le colonne occupano lo stesso spazio (50%) */
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tessera-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ritaglia l'immagine senza schiacciarla */
 }
 
 /* GOOGLE MAPS FRAME */
