@@ -1,30 +1,43 @@
-// 1. Chiediamo al broswer di leggere il file prodotti.json
+function popolaCategoria(prodotti, idContenitore) {
+  // 1. Trova l'elemento HTML usando idDestinazione
+  let contenitore = document.getElementById (idContenitore);
+
+  if (contenitore) {
+    let html = '<ul>';
+
+    prodotti.forEach(item => {
+      html += `<li>${item}</li>`;
+    });
+
+    html += '</ul>';
+
+    contenitore.innerHTML = html;
+  }
+}
+  
+
+
 fetch('prodotti.json')
-  .then(response => response.json()) //Trasformiamo la risposta in un oggetto leggibile
+  .then(response => response.json())
   .then(data => {
-    // 2. Troviamo il contenitore nell'HTML usando l'ID 
-    const container = document.getElementById('lista-vini-sfusi');
-
-    // 3. Prendiamo i dati che ci servono (vini sfusi rossi e bianchi)
-    const rossi = data.vini_sfusi.rossi;
-    const bianchi = data.vini_sfusi.bianchi;
-
-    // 4. Creiamo il contenuto HTML da inserire
-    let contenutoHTML = '<h4>Sfusi Rossi</h4><ul>';
-    
-    rossi.forEach(vino => {
-      contenutoHTML += `<li>${vino}</li>`;
-    });
-
-    let contenutoHTML = '<h4>Sfusi Bianchi</h4><ul>';
-
-    bianchi.forEach(vino => {
-      contenutoHTML += `<li>${vino}</li>`;
-    });
-
-    contenutoHTML += '</ul>';
-
-    // 5. Visualiziamo tutto nel container
-    container.innerHTML = contenutoHTML;
+    popolaCategoria(data.vini_sfusi.rossi, 'lista-vini-sfusi');
+    popolaCategoria(data.vini_sfusi.bianchi, 'lista-vini-bianchi');
+    popolaCategoria(data.bottiglie.bianche, 'lista-bottiglie-bianche');
+    popolaCategoria(data.bottiglie.rosse, 'lista-bottiglie-rosse');
+    popolaCategoria(data.gastronomia.liquori, 'lista-liquori');
+    popolaCategoria(data.gastronomia.miele, 'lista-miele');
+    popolaCategoria(data.gastronomia.salumi, 'lista-salumi');
+    popolaCategoria(data.gastronomia.dolci, 'lista-dolci');
   })
-  .catch(error => console.error('Errore nel caricamento dei vini:', error));
+
+
+
+
+
+
+
+
+
+
+
+
