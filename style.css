@@ -142,7 +142,7 @@ h2 {
 }
 
 /* --- LOGICA FLIP CARD (Aggiunta per la tessera) --- */
-.flip-card {
+/* .flip-card {
     perspective: 1000px;
     width: 100%;
     max-width: 400px;
@@ -172,7 +172,7 @@ h2 {
 
 .flip-card-back {
     transform: rotateY(180deg);
-}
+} */
 
 /* --- NEGOZIO GRID --- */
 .shop-grid {

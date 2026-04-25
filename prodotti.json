@@ -1,0 +1,16 @@
+{
+  "vini_sfusi": {
+    "rossi": ["Primitivo", "Montepulciano", "Rosso Olevano"],
+    "bianchi": ["Malvasia", "Bianco Olevano", "Pinot Grigio", "Pecorino", "Moscato Giallo/Malvasia"]
+  },
+  "bottiglie": {
+    "bianche": ["Pinot Grigio DOC Le Romiglia", "Lunario Colli Colli Lanuvini DOP Superiore La Luna Del Casale", "Epara Calabria IGT Bianco Tenuta Renda"],
+    "rosse": ["Colle Celone Cesanesa Di Olevano DOC Azienda Agricola Neri", "Valpolicella Le Romiglia", "Hora Melissa DOC Rossa Tenuta Renda", "Plenilunio Merlot IGP Lazie La Luna Del Casale"] 
+  },
+  "gastronomia": {
+    "liquori" : ["Limoncello", "Ratafia", "Liquirizia", "Amaro Agrumi Ed Erbe", "Sambuca", "Genzana", "Genziana", "Genziana Rafforzata"],
+    "miele": ["Millefiori", "Castagno", "Miele & Lampone", "Miele & Mirtillo", "Miele & Fragola", "Miele & Ciliegia", "Miele & Pistacchio", "Miele & More"],
+    "salumi": ["Salame", "Ventricina", "Salsicce Stagionate", "Salsicce Di Prosciutto Stagionate", "Salsicce Di Fegato Stagionate"],
+    "dolci": ["Ciambelle Al Vino", "Tozzetti", "Brutti Ma Buoni"]
+  }
+}
